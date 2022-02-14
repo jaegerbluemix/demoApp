@@ -1,0 +1,20 @@
+---
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: demoapp
+  labels:
+    name: demoapp
+spec:
+  triggers:
+    - type: ConfigChange
+  source:
+    type: Git
+    git:
+      uri: 'https://github.com/jaegerbluemix/demoapp.git'
+  strategy:
+    type: Docker
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'demoapp:latest'

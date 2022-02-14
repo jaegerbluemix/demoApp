@@ -2,7 +2,7 @@ FROM maven:3.6.3 as maven
 
 WORKDIR /usr/src/app
 COPY . /usr/src/app
-RUN mvn package 
+RUN ./mvnw package 
 
 FROM tomcat:8.5-jdk15-openjdk-oracle
 ARG TOMCAT_FILE_PATH=/docker 
@@ -15,7 +15,7 @@ ENV CATALINA_OPTS="-Xms1024m -Xmx4096m -XX:MetaspaceSize=512m -	XX:MaxMetaspaceS
 
 #Move over the War file from previous build step
 WORKDIR /usr/local/tomcat/webapps/
-COPY --from=maven /usr/src/app/target/demoopenshift-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/ROOT.war
+COPY --from=maven /usr/src/app/target/demoApp-1.0.0.war /usr/local/tomcat/webapps/ROOT.war
 
 COPY ${TOMCAT_FILE_PATH}/* ${CATALINA_HOME}/conf/
 

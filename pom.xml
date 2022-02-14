@@ -8,11 +8,11 @@
 		<version>2.6.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.maveric.openshift</groupId>
-	<artifactId>demoopenshift</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<groupId>com.demo.openshift</groupId>
+	<artifactId>demoApp</artifactId>
+	<version>1.0.0</version>
 	<packaging>war</packaging>
-	<name>demoopenshift</name>
+	<name>demoApp</name>
 	<description>Demo project for Spring Boot openshift test</description>
 	<properties>
 		<java.version>1.8</java.version>
