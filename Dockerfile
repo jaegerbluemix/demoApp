@@ -2,6 +2,7 @@ FROM maven:3.6.3 as maven
 
 WORKDIR /usr/src/app
 COPY . /usr/src/app
+RUN chmod -Rf 755 .
 RUN ./mvnw package 
 
 FROM tomcat:8.5-jdk15-openjdk-oracle
